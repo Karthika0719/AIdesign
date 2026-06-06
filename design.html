@@ -1,1 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Human-Centered AI Design</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:
+    radial-gradient(circle at top left,#3b82f6 0%,transparent 40%),
+    radial-gradient(circle at bottom right,#8b5cf6 0%,transparent 40%),
+    #050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Scroll */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(#60a5fa,#8b5cf6);
+    border-radius:20px;
+}
+
+/* Background */
+
+.blur1,.blur2{
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.25;
+    z-index:-1;
+    animation:float 10s infinite ease-in-out;
+}
+
+.blur1{
+    background:#3b82f6;
+    top:-100px;
+    left:-100px;
+}
+
+.blur2{
+    background:#8b5cf6;
+    bottom:-120px;
+    right:-120px;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(40px) scale(1.08);
+    }
+}
+
+/* Navbar */
+
+nav{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.1);
+    z-index:999;
+}
+
+nav .inner{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#7dd3fc;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#7dd3fc;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px 50px;
+}
+
+.glass{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(18px);
+    border-radius:25px;
+    padding:60px;
+    max-width:950px;
+    animation:fadeUp 1s ease;
+    box-shadow:0 8px 40px rgba(0,0,0,.35);
+}
+
+.hero h1{
+    font-size:3.5rem;
+    background:linear-gradient(to right,#60a5fa,#c084fc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:1.1rem;
+    color:#d1d5db;
+    line-height:1.8;
+}
+
+.btn{
+    margin-top:35px;
+    display:inline-block;
+    padding:14px 35px;
+    border-radius:50px;
+    background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+    color:white;
+    text-decoration:none;
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* Sections */
+
+section{
+    width:90%;
+    margin:auto;
+    padding:80px 0;
+}
+
+.title{
+    text-align:center;
+    font-size:2.2rem;
+    margin-bottom:50px;
+    color:#93c5fd;
+}
+
+/* Cards */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(18px);
+    border-radius:22px;
+    padding:30px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(96,165,250,.25);
+}
+
+.card h3{
+    color:#7dd3fc;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#d1d5db;
+    line-height:1.7;
+}
+
+/* Timeline */
+
+.timeline{
+    border-left:3px solid #60a5fa;
+    padding-left:25px;
+}
+
+.timeline-item{
+    margin-bottom:35px;
+}
+
+.timeline-item h3{
+    color:#93c5fd;
+}
+
+.timeline-item p{
+    color:#d1d5db;
+    margin-top:8px;
+}
+
+/* Quote */
+
+.quote{
+    text-align:center;
+    padding:70px 30px;
+    font-size:1.5rem;
+    font-style:italic;
+    color:#dbeafe;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#9ca3af;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+/* Animation */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.3rem;
+}
+
+nav ul{
+    display:none;
+}
+
+.glass{
+    padding:35px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="blur1"></div>
+<div class="blur2"></div>
+
+<nav>
+<div class="inner">
+
+<div class="logo">
+Human-Centered AI
+</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#principles">Principles</a></li>
+<li><a href="#benefits">Benefits</a></li>
+<li><a href="#future">Future</a></li>
+</ul>
+
+</div>
+</nav>
+
+<section class="hero">
+
+<div class="glass">
+
+<h1>Human-Centered AI Design</h1>
+
+<p>
+Creating Artificial Intelligence that empowers people through
+ethics, transparency, trust, accessibility, and meaningful
+human collaboration.
+</p>
+
+<a href="#about" class="btn">
+Explore
+</a>
+
+</div>
+
+</section>
+
+<section id="about" class="reveal">
+
+<h2 class="title">
+About
+</h2>
+
+<div class="glass">
+
+<p style="line-height:2;color:#d1d5db;">
+
+Human-Centered AI Design focuses on building intelligent
+systems that prioritize human values and experiences.
+Instead of replacing humans, AI should collaborate with
+them, supporting informed decisions while ensuring fairness,
+privacy, accountability, and inclusiveness.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="principles" class="reveal">
+
+<h2 class="title">
+Core Principles
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>👤 User First</h3>
+<p>
+AI systems should solve real user problems while remaining
+simple and intuitive.
+</p>
+</div>
+
+<div class="card">
+<h3>⚖️ Fairness</h3>
+<p>
+Algorithms should minimize bias and provide equal
+opportunities across diverse populations.
+</p>
+</div>
+
+<div class="card">
+<h3>🔒 Privacy</h3>
+<p>
+Personal information should be protected through responsible
+data handling and security.
+</p>
+</div>
+
+<div class="card">
+<h3>📖 Explainability</h3>
+<p>
+Users deserve understandable explanations for AI decisions
+and recommendations.
+</p>
+</div>
+
+<div class="card">
+<h3>🤝 Collaboration</h3>
+<p>
+AI should assist humans rather than replace critical
+decision-making.
+</p>
+</div>
+
+<div class="card">
+<h3>♿ Accessibility</h3>
+<p>
+Inclusive design ensures everyone can benefit from AI
+regardless of ability.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="benefits" class="reveal">
+
+<h2 class="title">
+Benefits
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>✔ Increased Trust</h3>
+<p>
+Transparent AI builds confidence among users and organizations.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>✔ Better User Experience</h3>
+<p>
+Designing around human needs creates more effective products.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>✔ Ethical Innovation</h3>
+<p>
+Responsible AI minimizes harmful outcomes and supports society.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>✔ Long-Term Adoption</h3>
+<p>
+People are more willing to use AI systems they understand and trust.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="quote reveal">
+
+“Technology should adapt to humans — not humans to technology.”
+
+</section>
+
+<section id="future" class="reveal">
+
+<h2 class="title">
+Future Vision
+</h2>
+
+<div class="glass">
+
+<p style="line-height:2;color:#d1d5db;">
+
+The future of Artificial Intelligence lies in responsible,
+human-focused innovation. By integrating ethics, transparency,
+fairness, accessibility, and collaboration into every stage
+of development, organizations can create AI solutions that
+improve lives while maintaining human dignity and control.
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Designed with ❤️ using HTML & CSS • Human-Centered AI Design Portfolio
+
+</footer>
+
+<script>
+
+const reveals=document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll",()=>{
+
+for(let item of reveals){
+
+let top=item.getBoundingClientRect().top;
+
+let windowHeight=window.innerHeight;
+
+if(top<windowHeight-120){
+
+item.classList.add("active");
+
+}
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
