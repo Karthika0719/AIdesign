@@ -16,8 +16,6 @@ A modern, responsive single-page website showcasing the principles of Human-Cent
 - CSS3
 - JavaScript
 
-## 🚀 Run
-Open `index.html` in any web browser.
 
 ## 📌 Focus Areas
 - User-First Design
@@ -28,4 +26,4 @@ Open `index.html` in any web browser.
 - Human-AI Collaboration
 
 ---
-Made with ❤️ for educational purposes.
+
